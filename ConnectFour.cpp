@@ -57,6 +57,7 @@ public:
                 }
             }
         }
+
         for (int row = 0; row < 6; row++)
         {
             for (int column = 0; column < 4; column++)
@@ -65,6 +66,34 @@ public:
                     && board[row][column + 1] == color
                     && board[row][column + 2] == color
                     && board[row][column + 3] == color)
+                {
+                    return true;
+                }
+            }
+        }
+
+        for (int row = 3; row < 6; row++)
+        {
+            for (int col = 0; col < 4; col++)
+            {
+                if (board[row][col] == color
+                    && board[row - 1][col + 1] == color
+                    && board[row - 2][col + 2] == color
+                    && board[row - 3][col + 3] == color)
+                {
+                    return true;
+                }
+            }
+        }
+
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 4; col++)
+            {
+                if (board[row][col] == color
+                    && board[row + 1][col + 1] == color
+                    && board[row + 2][col + 2] == color
+                    && board[row + 3][col + 3] == color)
                 {
                     return true;
                 }
